@@ -1,4 +1,4 @@
-package main;
+package main.withEnums;
 
 public class Companion {
 

@@ -1,28 +1,33 @@
 package main;
 
+import main.original.PlayerToOriginal;
+import main.original.companions.CompanionBase;
+import main.original.companions.Defender;
+import main.original.companions.Fighter;
+import main.original.companions.Healer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CompanionActionsTest {
+class OriginalCompanionActionTest {
 
-    private static Companion[] companions;
+    private static CompanionBase[] companions;
 
-    private Player player;
+    private PlayerToOriginal player;
 
     @BeforeAll
     static void setUp() {
-        companions = new Companion[3];
-        companions[0] = new Companion(CompanionType.HEALER);
-        companions[1] = new Companion(CompanionType.DEFENDER);
-        companions[2] = new Companion(CompanionType.FIGHTER);
+        companions = new CompanionBase[3];
+        companions[0] = new Healer();
+        companions[1] = new Defender();
+        companions[2] = new Fighter();
     }
 
     @BeforeEach
     void init() {
-        player = new Player(0, 0, 0);
+        player = new PlayerToOriginal(0, 0, 0);
     }
 
     @Test
@@ -56,4 +61,5 @@ class CompanionActionsTest {
         player.setCompanion(companions[index]);
         player.callForHelp();
     }
+
 }

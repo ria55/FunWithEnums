@@ -1,4 +1,6 @@
-package main;
+package main.withEnums;
+
+import main.withEnums.Companion;
 
 public class Player {
 
@@ -6,7 +8,7 @@ public class Player {
     private int attackPower;
     private int defensePower;
 
-    private Companion companion;
+    protected Companion companion;
 
     public Player(int stamina, int attackPower, int defensePower) {
         this.stamina = stamina;
